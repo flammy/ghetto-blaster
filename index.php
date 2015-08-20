@@ -26,6 +26,12 @@
 	$ghettoBlaster = new GhettoBlaster;
 	$ghettoBlaster->setPath($conf['paths']['sfx']);
 
+	$ghettoBlaster->setEnv($conf['system']['env']);
+	$ghettoBlaster->setPlayer($conf['system']['player']);
+	$ghettoBlaster->setTts($conf['system']['tts']);
+	$ghettoBlaster->setDebug($conf['system']['debug']);
+
+
 	// list sounds
 	$files = $ghettoBlaster->createFileList();
 

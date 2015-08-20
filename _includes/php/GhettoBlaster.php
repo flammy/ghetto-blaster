@@ -4,6 +4,30 @@
  *
  */
 class GhettoBlaster {
+	/*
+	 *
+	 */
+
+	var $env = "";
+
+	/*
+	 *
+	 */
+
+	var $player = "";
+
+
+	/*
+	 *
+	 */
+
+	var $tts ="";
+
+	/*
+	 *
+	 */
+
+	var $debug = "";
 
 	/*
 	 *
@@ -74,6 +98,36 @@ class GhettoBlaster {
 			@symlink($path, $this->symlink);
 		}
 	}
+
+	/*
+	 *
+	 */
+	function setEnv($env) {
+		$this->env = $env;
+	}
+
+
+	/*
+	 *
+	 */
+	function setPlayer($player) {
+		$this->player = $player;
+	}
+
+
+	/*
+	 *
+	 */
+	function setTts($tts) {
+		$this->tts = $tts;
+
+	}
+	/*
+	 *
+	 */
+	function setDebug($debug) {
+		$this->debug = $debug;
+	}
 	
 	
 	/*
@@ -82,7 +136,7 @@ class GhettoBlaster {
 	function play($play) {
 		$play = strip_tags($play);
 		$play = str_replace('/sfx', '', $play);
-		$cmd = 'afplay ' . $this->path . $play;
+		$cmd = $this->env.'  '.$this->player.' "' . $this->path . $play.'"  '.$this->debug;
 		shell_exec($cmd);
 		return $cmd;
 	}
@@ -92,9 +146,11 @@ class GhettoBlaster {
 	 *
 	 */
 	function stop() {
-		shell_exec('killall afplay');
-		//shell_exec('killall say');
-		return "done";
+		$cmd1 = $this->env.' killall '.$this->player.' '.$this->debug;
+		$cmd2 = $this->env.' killall '.$this->tts.' '.$this->debug;
+		$ret = shell_exec($cmd1);
+		$ret = shell_exec($cmd2);
+		return $cmd1.cmd2;
 	}
 	
 	
@@ -140,7 +196,7 @@ class GhettoBlaster {
 	 *
 	 */
 	function say($txt, $voice) {
-		$cmd = "say -v ".stripslashes($voice)." '" . $txt . "'";
+		$cmd = $this->env.' '.$this->tts.' -v '.$voice.' "'. $txt . '" '.$this->debug;
 		shell_exec($cmd);
 		return $cmd;
 	}

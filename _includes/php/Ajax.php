@@ -14,6 +14,12 @@
 		// start the ghetto blaster
 		$ghettoBlaster = new GhettoBlaster;
 		$ghettoBlaster->setPath($conf['paths']['sfx']);
+	        $ghettoBlaster->setEnv($conf['system']['env']);
+        	$ghettoBlaster->setPlayer($conf['system']['player']);
+	        $ghettoBlaster->setTts($conf['system']['tts']);
+	        $ghettoBlaster->setDebug($conf['system']['debug']);
+
+
 
 		// start the log (if required)
 		$log = new Log($conf['options']['logActions']);

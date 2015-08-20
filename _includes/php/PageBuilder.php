@@ -66,35 +66,20 @@ class PageBuilder {
 							<div class="input-container clearfix">
 								<input type="text" class="text" id="say-text" name="say-text" />
 								<select name="voice" id="voice">
-									<optgroup label="Female">
-										<option>Agnes</option>
-										<option>Kathy</option>
-										<option>Princess</option>
-										<option>Vicki</option>
-										<option>Victoria</option>
-									</optgroup>
-									<optgroup label="Male">
-										<option selected="selected">Bruce</option>
-										<option>Fred</option>
-										<option>Junior</option>
-										<option>Ralph</option>
-									</optgroup>
-									<optgroup label="Novelty">
-										<option>Albert</option>
-										<option value=\'"Bad News"\'>Bad News</option>
-										<option>Bahh</option>
-										<option>Bells</option>
-										<option>Boing</option>
-										<option>Bubbles</option>
-										<option>Cellos</option>
-										<option>Deranged</option>
-										<option value=\'"Good News"\'>Good News</option>
-										<option>Hysterical</option>
-										<option value=\'"Pipe Organ"\'>Pipe Organ</option>
-										<option>Trinoids</option>
-										<option>Whisper</option>
-										<option>Zarvox</option>
-									</optgroup>
+										<option selected="selected">de</option>
+										<option>en</option>
+										<option>en-gb</option>
+										<option>en-sc</option>
+										<option>en-uk-north</option>
+										<option>en-uk-rp</option>
+										<option>en-uk-wmids</option>
+										<option>en-us</option>
+										<option>en-wi</option>
+										<option>fr-be</option>
+										<option>fr-fr</option>
+										<option>la</option>
+										<option>nl</option>
+										<option>ru</option>
 								</select>
 								<input type="submit" class="button" value="Say" />
 							</div>
