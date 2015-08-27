@@ -9,13 +9,14 @@ require_once('Log.php');
 
 class Stats {
 	
-	/*
-	 *
+
+	/**
+	 * @var object $log contains the logger object
 	 */
 	protected $log = null;
 	
-	/*
-	 *
+	/**
+	 * @var array $statTypes containts a list of all types of stats
 	 */
 	protected $statTypes = array(
 		'latest-tracks' => 'latestTracks',
@@ -28,8 +29,9 @@ class Stats {
 //		'top-users-by-month' => 'TopTracks'
 	);
 	
-	/*
-	 *
+
+	/**
+	 * @var array $colourSchemes containts a list of all colour-shemes
 	 */
 	protected $colourSchemes = array(
 		"family-and-friends",
@@ -42,8 +44,9 @@ class Stats {
 		"work"
 	);
 	
-	/*
-	 *
+
+	/**
+	 * @var array $colourSchemes containts a list of all graph types
 	 */
 	protected $graphTypes = array(
 		"bar",
@@ -51,16 +54,18 @@ class Stats {
 		"line"
 	);
 	
-	/*
-	 *
+
+	/**
+	 * @var array $colourSchemes containts a list of all graph-orientations
 	 */
 	protected $graphOrientations = array(
 		"v",
 		"h",
 	);
 	
+
 	/*
-	 *
+	 * Constructor
 	 */
 	public function __construct() {
 		$log = new Log;
@@ -68,24 +73,25 @@ class Stats {
 	}
 	
 	
-	/*
-	 *
+	/**
+	 * Gets a list of all stats types
+	 * @return array contains a list of all stat types
 	 */
 	public function getStatTypes() {
 		return $this->statTypes;
 	}	
 	
 	
-	/*
-	 *
+	/**
+	 * Executs a method
+	 * @var string $statType determines which mehtod gets executed
+	 * @return mixed the result of the method
 	 */
 	public function getStats($statType) {
-		
 		// condition : if the requested stat type exists, run it
 		if (isset($this->statTypes[$statType])) {
 			$method = "get".$this->statTypes[$statType];
 			return $this->$method();
-
 		// requested method doesn't exist
 		} else {
 			return false;
@@ -93,16 +99,22 @@ class Stats {
 	}
 	
 	
-	/*
-	 *
+	/**
+	 * Gets the default stat type
+	 * @return string contains the default stat type
 	 */
 	public function getDefaultStatType() {
 		return key($this->statTypes);
 	}
 	
 	
-	/*
-	 * 
+	/**
+	 * Generates the flash-vars code block
+	 * @var array $stats containts the stats
+	 * @var string $cats contains the categories
+	 * @var string $cats2 contains the categories
+	 * @var string $title containts the title
+	 * @return string contains html block with the flash vars
 	 */
 	protected function buildFlashVars($stats, $cats, $cats2, $title) {
 		
@@ -169,13 +181,9 @@ class Stats {
 	
 	
 	
-	/*
-	 * STATS METHODS
-	 */
-	
-	
-	/*
-	 * 
+	/**
+	 * Makes a graph of the top tracks
+	 * @return string contains the html code with the flash vars for this stat
 	 */
 	protected function getTopTracks() {
 		$tracks = array();
@@ -213,8 +221,9 @@ class Stats {
 	
 	
 	
-	/*
-	 * 
+	/**
+	 * Makes a graph of the top users
+	 * @return string contains the html code with the flash vars for this stat
 	 */
 	protected function getTopUsers() {
 		$users = array();
@@ -246,8 +255,9 @@ class Stats {
 	
 	
 	
-	/*
-	 * 
+	/**
+	 * Makes a graph of the latest tracks
+	 * @return string contains the html code with the flash vars for this stat
 	 */
 	protected function getLatestTracks() {
 
@@ -287,8 +297,9 @@ class Stats {
 	
 	
 	
-	/*
-	 * 
+	/**
+	 * Makes a graph of the top users by track
+	 * @return string contains the html code with the flash vars for this stat
 	 */
 	protected function getTopUsersByTrack() {
 		
@@ -369,8 +380,9 @@ class Stats {
 	}
 	
 	
-	/*
-	 * 
+	/**
+	 * Makes a graph of the top tracks by user
+	 * @return string contains the html code with the flash vars for this stat
 	 */
 	protected function getTopTracksByUser() {
 		
