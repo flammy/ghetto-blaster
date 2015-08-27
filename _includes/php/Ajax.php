@@ -1,4 +1,7 @@
 <?php
+/**
+ * This File receives the Ajax Calls, executes them and updates the GUI
+ */
 	session_start();
 
 	if (isset($_POST) && count($_POST) > 0) {
@@ -13,11 +16,13 @@
 
 		// start the ghetto blaster
 		$ghettoBlaster = new GhettoBlaster;
+
+		// Configure ghetto blaster with values from config.ini.php
 		$ghettoBlaster->setPath($conf['paths']['sfx']);
-	        $ghettoBlaster->setEnv($conf['system']['env']);
-        	$ghettoBlaster->setPlayer($conf['system']['player']);
-	        $ghettoBlaster->setTts($conf['system']['tts']);
-	        $ghettoBlaster->setDebug($conf['system']['debug']);
+	    $ghettoBlaster->setEnv($conf['system']['env']);
+        $ghettoBlaster->setPlayer($conf['system']['player']);
+	    $ghettoBlaster->setTts($conf['system']['tts']);
+	    $ghettoBlaster->setDebug($conf['system']['debug']);
 
 
 
@@ -82,4 +87,3 @@
 			break;
 		}
 	}
-	
