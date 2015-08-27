@@ -1,7 +1,14 @@
 <?php
+/**
+ * This File provides the doLogin function
+ */
 
-	/*
-	 * Simple login
+
+
+	/** 
+	 * This function generates a login session if username and password matches
+	 * @var array $login contains login and password array('login' => '', 'password' => '')
+	 * @return bool contains the result of the login check
 	 */
 	function doLogin($login) {
 
