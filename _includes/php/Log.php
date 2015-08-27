@@ -6,26 +6,26 @@
  */
 class Log {
 
-	/*
-	 *
+	/**
+	 * @var resource $log contains the filepointer for the file to log to
 	 */
 	var $log = null;
 	
 	
-	/*
-	 *
+	/**
+	 * @var string $file contains the path to the logfile
 	 */
 	var $file = null;
 	
 	
-	/*
-	 *
+	/**
+	 * @var bool $doLog switches logging on or off
 	 */
 	var $doLog = true;
 	
 	
 	/*
-	 *
+	 * constructor method
 	 */
 	function __construct($doLog = null) {
 		$this->doLog = $doLog;
@@ -33,7 +33,9 @@ class Log {
 	}
 	
 	
-	/*
+	/** 
+	 * This method logs to a given file if $doLog is true
+	 * @var string $message contains the message to write into the logfile
 	 *
 	 */
 	function logMessage($message) {
@@ -58,7 +60,9 @@ class Log {
 	}
 	
 	
-	/*
+	/** 
+	 * This method returns the contents from the logfile 
+	 * @return string contains the messages from the log file
 	 *
 	 */
 	public function getLog() {
@@ -66,9 +70,12 @@ class Log {
 	}
 	
 	
-	// open log file
+	/** 
+	 * This method opens the logfile 
+	 * @return resource contains the pile-pointer to the log file
+	 *
+	 */
 	private function logOpen(){
-		
 		// define log file path and name
 		$file = $this->file;
 		
