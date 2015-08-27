@@ -24,8 +24,10 @@
 
 	// start the ghetto blaster
 	$ghettoBlaster = new GhettoBlaster;
-	$ghettoBlaster->setPath($conf['paths']['sfx']);
 
+	
+	// Configure ghetto blaster with values from config.ini.php
+	$ghettoBlaster->setPath($conf['paths']['sfx']);
 	$ghettoBlaster->setEnv($conf['system']['env']);
 	$ghettoBlaster->setPlayer($conf['system']['player']);
 	$ghettoBlaster->setTts($conf['system']['tts']);
